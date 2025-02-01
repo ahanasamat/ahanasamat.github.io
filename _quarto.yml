@@ -9,6 +9,8 @@ website:
         text: Home
       - href: about.html
         text: About
+      - href: assignment1.html
+        text: Assignment 1
 
 format:
   html:
