@@ -19,5 +19,152 @@
     "title": "Assignment 1",
     "section": "",
     "text": "Question 1\nThree applications that use a database system that I use in my daily life are Amazon, Chase Bank, and E-Learning. Amazon stores information about products, prices, and sellers. This can be accessed through query or using keywords. For instance, the other day I purchased a lamp with three shelves. I asked for “lamp” with “shelf” in the search bar. Chase Bank stores information about customers financial histories, credit scores, account numbers and so on. E-Learning is a learning management system that stores information about courses, instructors, and students.\nQuestion 2\nOne application I can propose in Economics is a personal budget dashboard. Each consumer can look at their history of spending and see the categories of items they have spent on. This will give not only policymakers but also market researchers insight into what consumers spend on, at different economic times. Such as when there is a boom or a recession.\nWith the help of ChatGPT, this is what the interface would look like: The consumer view of the Personal Budget Dashboard features a user-friendly header with navigation options for the Dashboard, Budget Goals, and Trends. The main section includes a Spending Overview Widget that compares the current month’s total expenses against the budget, helping users track their financial health at a glance. An interactive pie chart provides a detailed breakdown of spending categories, while a line graph illustrates monthly spending trends over time for better insight into patterns. At the footer, users can easily add new expenses or export their financial reports. For researchers and policymakers, the dashboard offers widgets that display a consumer spending heatmap by region, a spending shift comparison between economic booms and recessions, and insights into top spending categories, providing valuable information for economic analysis and decision-making.\nQuestion 4\nAs we have discussed in class, NoSQL systems emerged in the 2000s primarily due to the rise of big data, social media platforms, and cloud-based applications. Traditional relational databases (RDBMS) struggled to handle the scalability, speed, and flexibility demands of massive and diverse data. Companies like Google, Amazon, and Facebook required storage solutions that could efficiently manage high-volume, unstructured, and semi-structured data.\nQuestion 6\nThree tables that might be used to store data on a social media platform, as we discussed in class, includes UserID’s, data of likes and comments or relationships with followers, as well as posts."
+  },
+  {
+    "objectID": "assignment2.html",
+    "href": "assignment2.html",
+    "title": "Assignment 2",
+    "section": "",
+    "text": "A relational schema for this database would define the structure of the Instructors table by specifying its attributes, such as “Course ID” and “Instructor ID” along with their data types. The relation refers to the actual Instructors table, which consists of rows representing different instructors assigned to courses. An instance is a snapshot of this table at a specific moment, showing the current assignments of instructors to courses. While the schema remains unchanged, the instance can vary over time as instructors are added, removed, or reassigned to different courses."
+  },
+  {
+    "objectID": "assignment2.html#question-1",
+    "href": "assignment2.html#question-1",
+    "title": "Assignment 2",
+    "section": "",
+    "text": "A relational schema for this database would define the structure of the Instructors table by specifying its attributes, such as “Course ID” and “Instructor ID” along with their data types. The relation refers to the actual Instructors table, which consists of rows representing different instructors assigned to courses. An instance is a snapshot of this table at a specific moment, showing the current assignments of instructors to courses. While the schema remains unchanged, the instance can vary over time as instructors are added, removed, or reassigned to different courses."
+  },
+  {
+    "objectID": "assignment2.html#question-2-and-3",
+    "href": "assignment2.html#question-2-and-3",
+    "title": "Assignment 2",
+    "section": "Question 2 and 3",
+    "text": "Question 2 and 3\nThe primary key for the bank database is as follows for each relation is as follows: For branch it is branch_name; for customer, it is ID; for loan, it is loan_number; for borrower, it is ID; for account, it is account_number; for depositor, it is ID.\nThe foreign keys are branch_name and ID as these connect all the relations together."
+  },
+  {
+    "objectID": "assignment3.html",
+    "href": "assignment3.html",
+    "title": "Assignment 3",
+    "section": "",
+    "text": "Open the SQL interpreter."
+  },
+  {
+    "objectID": "assignment3.html#question-1",
+    "href": "assignment3.html#question-1",
+    "title": "Assignment 3",
+    "section": "",
+    "text": "Open the SQL interpreter."
+  },
+  {
+    "objectID": "assignment3.html#question-2",
+    "href": "assignment3.html#question-2",
+    "title": "Assignment 3",
+    "section": "Question 2",
+    "text": "Question 2\nCode for Student ID: SELECT DISTINCT ID FROM student;\nCode for Instructors: SELECT ID, name FROM instructor;\nCode for departments: SELECT DISTINCT dept_name FROM department;"
+  },
+  {
+    "objectID": "assignment3.html#question-3",
+    "href": "assignment3.html#question-3",
+    "title": "Assignment 3",
+    "section": "Question 3",
+    "text": "Question 3\nID and Name for every student who has taken comp sci course:\nSELECT DISTINCT s.ID, s.name FROM student s JOIN takes t ON s.ID = t.ID JOIN course c ON t.course_id = c.course_id WHERE c.dept_name = ‘Comp. Sci.’;\nAdding Grades:\nSELECT DISTINCT s.ID, s.name, t.grade FROM student s JOIN takes t ON s.ID = t.ID JOIN course c ON t.course_id = c.course_id WHERE c.dept_name = ‘Comp. Sci.’;\nID and Name of each student not taking course before 2017\nSELECT s.ID, s.name FROM student s WHERE s.ID NOT IN ( SELECT t.ID FROM takes t JOIN section sec ON t.course_id = sec.course_id AND t.sec_id = sec.sec_id AND t.semester = sec.semester AND t.year = sec.year WHERE sec.year &lt; 2017 );\nMax Salary\nSELECT dept_name, MAX(salary) AS max_salary FROM instructor GROUP BY dept_name;\nMin Max Salary Across Departments\nSELECT MIN(max_salary) AS lowest_max_salary FROM ( SELECT dept_name, MAX(salary) AS max_salary FROM instructor GROUP BY dept_name ) AS dept_max_salaries;"
+  },
+  {
+    "objectID": "assignment3.html#question-4",
+    "href": "assignment3.html#question-4",
+    "title": "Assignment 3",
+    "section": "Question 4",
+    "text": "Question 4\nSELECT i.ID, i.name FROM instructor i WHERE NOT EXISTS ( SELECT * FROM teaches t JOIN takes tk ON t.course_id = tk.course_id AND t.sec_id = tk.sec_id AND t.semester = tk.semester AND t.year = tk.year WHERE t.ID = i.ID AND tk.grade = ‘A’ );"
+  },
+  {
+    "objectID": "assignment4.html",
+    "href": "assignment4.html",
+    "title": "Assignment 4",
+    "section": "",
+    "text": "A strong entity set is one that can be uniquely identified by its own attributes and has a primary key. In contrast, a weak entity set cannot be uniquely identified by its own attributes alone and relies on a related strong entity set for identification. It typically includes a partial key and participates in a relationship—often with total participation—through which it derives its full identity.\nFor instance, a dataset for library contains attributes like Library_ID and Name. This is a strong entity set. But Books including the copies of ach book, like Copy_No and Library_ID may be a weak entity set that only exists in relation with the Library table."
+  },
+  {
+    "objectID": "assignment4.html#question-1",
+    "href": "assignment4.html#question-1",
+    "title": "Assignment 4",
+    "section": "",
+    "text": "A strong entity set is one that can be uniquely identified by its own attributes and has a primary key. In contrast, a weak entity set cannot be uniquely identified by its own attributes alone and relies on a related strong entity set for identification. It typically includes a partial key and participates in a relationship—often with total participation—through which it derives its full identity.\nFor instance, a dataset for library contains attributes like Library_ID and Name. This is a strong entity set. But Books including the copies of ach book, like Copy_No and Library_ID may be a weak entity set that only exists in relation with the Library table."
+  },
+  {
+    "objectID": "assignment4.html#question-2",
+    "href": "assignment4.html#question-2",
+    "title": "Assignment 4",
+    "section": "Question 2",
+    "text": "Question 2\nAn NFL database is designed to store and manage comprehensive information about teams, players, games, and performance statistics. At its core, the database includes a Team table containing each NFL team’s name, city, stadium, division, and conference. The Player table holds details about individual athletes, including their name, position, physical stats, college background, and the team they play for. Games are recorded in a Game table, which tracks the date, season, week, home and away teams, and final results. To analyze performance, a Player_Stats table logs key statistics such as passing yards, touchdowns, and interceptions for each player per game. Additionally, a Coach table captures information about coaching staff and their roles, while a Season_Standings table monitors team records across seasons. This relational structure allows for detailed queries about game outcomes, player performance, and seasonal rankings, supporting both real-time updates and historical analysis."
+  },
+  {
+    "objectID": "assignment4.html#question-3",
+    "href": "assignment4.html#question-3",
+    "title": "Assignment 4",
+    "section": "Question 3",
+    "text": "Question 3\nAppending a natural join with the section table in the FROM clause of the given query would not change the result because the query already groups by course_id, semester, year, and sec_id—attributes that are present in both the takes and section tables. In a natural join, the join is performed automatically based on common attribute names, and since these attributes are already available through the takes relation, adding the section table does not contribute any new information or change the grouping or filtering logic. Therefore, the aggregation of avg(tot_cred) and the having count(ID) &gt;= 2 condition will still be evaluated on the same set of tuples, making the additional join with section redundant in this context."
+  },
+  {
+    "objectID": "assignment5.html",
+    "href": "assignment5.html",
+    "title": "Assignment 5",
+    "section": "",
+    "text": "In the context of an Entity-Relationship (E-R) diagram, which is a type of graph used to model the structure of an enterprise schema, the following interpretations apply:\na) The graph is disconnected:\n- Meaning: A disconnected graph in an E-R diagram means that there are entities or relationships in the schema that are not linked or connected to other parts of the schema. In terms of the enterprise structure, this suggests that some entities or relationships may be isolated, with no relationships or foreign keys pointing to them. This can indicate issues in the schema design, such as unreferenced or redundant tables/entities that don’t serve any functional purpose within the rest of the schema.\nb) The graph has a cycle:\nMeaning: A cycle in an E-R diagram means that there is a set of entities and relationships where you can start from one entity, traverse through a series of relationships, and eventually return to the same entity. This indicates circular references, which can lead to problems in the schema, such as redundancy, logical inconsistencies, or difficulties in data retrieval."
+  },
+  {
+    "objectID": "assignment5.html#question-1",
+    "href": "assignment5.html#question-1",
+    "title": "Assignment 5",
+    "section": "",
+    "text": "In the context of an Entity-Relationship (E-R) diagram, which is a type of graph used to model the structure of an enterprise schema, the following interpretations apply:\na) The graph is disconnected:\n- Meaning: A disconnected graph in an E-R diagram means that there are entities or relationships in the schema that are not linked or connected to other parts of the schema. In terms of the enterprise structure, this suggests that some entities or relationships may be isolated, with no relationships or foreign keys pointing to them. This can indicate issues in the schema design, such as unreferenced or redundant tables/entities that don’t serve any functional purpose within the rest of the schema.\nb) The graph has a cycle:\nMeaning: A cycle in an E-R diagram means that there is a set of entities and relationships where you can start from one entity, traverse through a series of relationships, and eventually return to the same entity. This indicates circular references, which can lead to problems in the schema, such as redundancy, logical inconsistencies, or difficulties in data retrieval."
+  },
+  {
+    "objectID": "assignment5.html#question-3",
+    "href": "assignment5.html#question-3",
+    "title": "Assignment 5",
+    "section": "Question 3",
+    "text": "Question 3\nWeak entity sets are necessary because they represent entities that cannot exist independently and rely on a strong entity for their identity. While adding unique attributes could convert them into strong entities, this would often lead to unnecessary redundancy and inefficiencies. Weak entities reflect real-world dependencies and are more efficient in terms of storage, avoiding the need for extra identifiers. They also align with normalization principles by minimizing data duplication. In short, weak entities allow for a more accurate and streamlined representation of entities that are inherently dependent on others."
+  },
+  {
+    "objectID": "assignment5.html#question-4-part-a",
+    "href": "assignment5.html#question-4-part-a",
+    "title": "Assignment 5",
+    "section": "Question 4 Part a)",
+    "text": "Question 4 Part a)\ni) SELECT e.ID, e.name FROM employee AS e JOIN works AS w ON e.ID = w.employee_id JOIN company AS c ON w.company_id = c.company_id WHERE e.city = c.location;\nii) SELECT e.ID, e.name FROM employee AS e JOIN works AS w ON e.ID = w.employee_id JOIN manages AS m ON w.manager_id = m.manager_id JOIN employee AS manager ON m.manager_id = manager.ID WHERE e.city = manager.city AND e.street = manager.street;\niii) SELECT e.ID, e.name FROM employee AS e JOIN works AS w ON e.ID = w.employee_id JOIN company AS c ON w.company_id = c.company_id WHERE e.salary &gt; ( SELECT AVG(e2.salary) FROM employee AS e2 JOIN works AS w2 ON e2.ID = w2.employee_id WHERE w2.company_id = c.company_id );"
+  },
+  {
+    "objectID": "assignment5.html#question-4-part-b",
+    "href": "assignment5.html#question-4-part-b",
+    "title": "Assignment 5",
+    "section": "Question 4 Part b)",
+    "text": "Question 4 Part b)\ncorrected query:\nSELECT i.name, c.title FROM instructor AS i JOIN teaches AS t ON i.ID = t.instructor_id JOIN section AS s ON t.section_id = s.section_id JOIN course AS c ON s.course_id = c.course_id WHERE s.semester = ‘Spring’ AND s.year = 2017;"
+  },
+  {
+    "objectID": "assignment6.html",
+    "href": "assignment6.html",
+    "title": "Assignment 6",
+    "section": "",
+    "text": "Websites using JSON typically utilize it for lightweight data exchange between the server and client. It is commonly used with AJAX, the Fetch API, or JavaScript frameworks like React to dynamically load and update content without refreshing the page. Technologies such as Node.js or Django often serve JSON data through RESTful APIs. On the other hand, XML is used for structured data storage and transport, commonly seen with SOAP web services or XML-based APIs. Websites using XML often employ XSLT for transforming XML data into HTML for presentation. While JSON is favored for modern web applications due to its simplicity and compatibility with JavaScript, XML remains prevalent in legacy systems requiring more complex data structures."
+  },
+  {
+    "objectID": "assignment6.html#question-1",
+    "href": "assignment6.html#question-1",
+    "title": "Assignment 6",
+    "section": "",
+    "text": "Websites using JSON typically utilize it for lightweight data exchange between the server and client. It is commonly used with AJAX, the Fetch API, or JavaScript frameworks like React to dynamically load and update content without refreshing the page. Technologies such as Node.js or Django often serve JSON data through RESTful APIs. On the other hand, XML is used for structured data storage and transport, commonly seen with SOAP web services or XML-based APIs. Websites using XML often employ XSLT for transforming XML data into HTML for presentation. While JSON is favored for modern web applications due to its simplicity and compatibility with JavaScript, XML remains prevalent in legacy systems requiring more complex data structures."
+  },
+  {
+    "objectID": "assignment6.html#question-2",
+    "href": "assignment6.html#question-2",
+    "title": "Assignment 6",
+    "section": "Question 2",
+    "text": "Question 2\nSELECT s.ID FROM student s LEFT OUTER JOIN advisor a ON s.ID = a.student_id WHERE a.ID IS NULL;\nSELECT i.name, i.ID FROM instructor i JOIN teaches t ON i.ID = t.instructor_id JOIN course c ON t.course_id = c.course_id JOIN department d ON c.department_id = d.department_id WHERE NOT EXISTS ( SELECT 1 FROM course c2 WHERE c2.department_id = d.department_id AND NOT EXISTS ( SELECT 1 FROM teaches t2 WHERE t2.instructor_id = i.ID AND t2.course_id = c2.course_id ) ) ORDER BY i.name;"
+  },
+  {
+    "objectID": "assignment6.html#question-3",
+    "href": "assignment6.html#question-3",
+    "title": "Assignment 6",
+    "section": "Question 3",
+    "text": "Question 3\nImport dataset and run PostGre01.R- I have completed this in R"
   }
 ]
