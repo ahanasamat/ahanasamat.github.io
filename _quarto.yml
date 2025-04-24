@@ -11,7 +11,16 @@ website:
         text: About
       - href: assignment1.html
         text: Assignment 1
-
+      - href: assignment2.html
+        text: Assignment 2
+      - href: assignment3.html
+        text: Assignment 3
+      - href: assignment4.html
+        text: Assignment 4
+      - href: assignment5.html
+        text: Assignment 5
+      - href: assignment6.html
+        text: Assignment 6
 format:
   html:
     theme: cosmo

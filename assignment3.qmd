@@ -1,0 +1,41 @@
+---
+title: "Assignment 3"
+---
+
+## Question 1
+
+Open the SQL interpreter.
+
+## Question 2
+
+Code for Student ID: SELECT DISTINCT ID FROM student;
+
+Code for Instructors: SELECT ID, name FROM instructor;
+
+Code for departments: SELECT DISTINCT dept_name FROM department;
+
+## Question 3
+
+**ID and Name for every student who has taken comp sci course:**
+
+SELECT DISTINCT s.ID, s.name FROM student s JOIN takes t ON s.ID = t.ID JOIN course c ON t.course_id = c.course_id WHERE c.dept_name = 'Comp. Sci.';
+
+**Adding Grades:**
+
+SELECT DISTINCT s.ID, s.name, t.grade FROM student s JOIN takes t ON s.ID = t.ID JOIN course c ON t.course_id = c.course_id WHERE c.dept_name = 'Comp. Sci.';
+
+**ID and Name of each student not taking course before 2017**
+
+SELECT s.ID, s.name FROM student s WHERE s.ID NOT IN ( SELECT t.ID FROM takes t JOIN section sec ON t.course_id = sec.course_id AND t.sec_id = sec.sec_id AND t.semester = sec.semester AND t.year = sec.year WHERE sec.year \< 2017 );
+
+**Max Salary**
+
+SELECT dept_name, MAX(salary) AS max_salary FROM instructor GROUP BY dept_name;
+
+**Min Max Salary Across Departments**
+
+SELECT MIN(max_salary) AS lowest_max_salary FROM ( SELECT dept_name, MAX(salary) AS max_salary FROM instructor GROUP BY dept_name ) AS dept_max_salaries;
+
+## Question 4
+
+SELECT i.ID, i.name FROM instructor i WHERE NOT EXISTS ( SELECT \* FROM teaches t JOIN takes tk ON t.course_id = tk.course_id AND t.sec_id = tk.sec_id AND t.semester = tk.semester AND t.year = tk.year WHERE t.ID = i.ID AND tk.grade = 'A' );

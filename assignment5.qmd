@@ -1,0 +1,33 @@
+---
+title: "Assignment 5"
+---
+
+## Question 1
+
+In the context of an Entity-Relationship (E-R) diagram, which is a type of graph used to model the structure of an enterprise schema, the following interpretations apply:
+
+a\) The graph is disconnected:
+
+\- Meaning: A disconnected graph in an E-R diagram means that there are entities or relationships in the schema that are not linked or connected to other parts of the schema. In terms of the enterprise structure, this suggests that some entities or relationships may be isolated, with no relationships or foreign keys pointing to them. This can indicate issues in the schema design, such as unreferenced or redundant tables/entities that don't serve any functional purpose within the rest of the schema.
+
+b\) The graph has a cycle:
+
+Meaning: A cycle in an E-R diagram means that there is a set of entities and relationships where you can start from one entity, traverse through a series of relationships, and eventually return to the same entity. This indicates circular references, which can lead to problems in the schema, such as redundancy, logical inconsistencies, or difficulties in data retrieval.
+
+## Question 3
+
+Weak entity sets are necessary because they represent entities that cannot exist independently and rely on a strong entity for their identity. While adding unique attributes could convert them into strong entities, this would often lead to unnecessary redundancy and inefficiencies. Weak entities reflect real-world dependencies and are more efficient in terms of storage, avoiding the need for extra identifiers. They also align with normalization principles by minimizing data duplication. In short, weak entities allow for a more accurate and streamlined representation of entities that are inherently dependent on others.
+
+## Question 4 Part a)
+
+i\) SELECT e.ID, e.name FROM employee AS e JOIN works AS w ON e.ID = w.employee_id JOIN company AS c ON w.company_id = c.company_id WHERE e.city = c.location;
+
+ii\) SELECT e.ID, e.name FROM employee AS e JOIN works AS w ON e.ID = w.employee_id JOIN manages AS m ON w.manager_id = m.manager_id JOIN employee AS manager ON m.manager_id = manager.ID WHERE e.city = manager.city AND e.street = manager.street;
+
+iii\) SELECT e.ID, e.name FROM employee AS e JOIN works AS w ON e.ID = w.employee_id JOIN company AS c ON w.company_id = c.company_id WHERE e.salary \> ( SELECT AVG(e2.salary) FROM employee AS e2 JOIN works AS w2 ON e2.ID = w2.employee_id WHERE w2.company_id = c.company_id );
+
+## Question 4 Part b) 
+
+corrected query:
+
+SELECT i.name, c.title FROM instructor AS i JOIN teaches AS t ON i.ID = t.instructor_id JOIN section AS s ON t.section_id = s.section_id JOIN course AS c ON s.course_id = c.course_id WHERE s.semester = 'Spring' AND s.year = 2017;

@@ -1,0 +1,17 @@
+---
+title: "Assignment 6"
+---
+
+## Question 1
+
+Websites using **JSON** typically utilize it for lightweight data exchange between the server and client. It is commonly used with AJAX, the Fetch API, or JavaScript frameworks like React to dynamically load and update content without refreshing the page. Technologies such as Node.js or Django often serve JSON data through RESTful APIs. On the other hand, **XML** is used for structured data storage and transport, commonly seen with SOAP web services or XML-based APIs. Websites using XML often employ XSLT for transforming XML data into HTML for presentation. While JSON is favored for modern web applications due to its simplicity and compatibility with JavaScript, XML remains prevalent in legacy systems requiring more complex data structures.
+
+## Question 2
+
+SELECT s.ID FROM student s LEFT OUTER JOIN advisor a ON s.ID = a.student_id WHERE a.ID IS NULL;
+
+SELECT i.name, i.ID FROM instructor i JOIN teaches t ON i.ID = t.instructor_id JOIN course c ON t.course_id = c.course_id JOIN department d ON c.department_id = d.department_id WHERE NOT EXISTS ( SELECT 1 FROM course c2 WHERE c2.department_id = d.department_id AND NOT EXISTS ( SELECT 1 FROM teaches t2 WHERE t2.instructor_id = i.ID AND t2.course_id = c2.course_id ) ) ORDER BY i.name;
+
+## Question 3
+
+Import dataset and run PostGre01.R- I have completed this in R

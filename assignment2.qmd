@@ -1,0 +1,13 @@
+---
+title: "Assignment 2"
+---
+
+## Question 1
+
+A **relational schema** for this database would define the structure of the Instructors table by specifying its attributes, such as "Course ID" and "Instructor ID" along with their data types. The **relation** refers to the actual Instructors table, which consists of rows representing different instructors assigned to courses. An **instance** is a snapshot of this table at a specific moment, showing the current assignments of instructors to courses. While the schema remains unchanged, the instance can vary over time as instructors are added, removed, or reassigned to different courses.
+
+## Question 2 and 3
+
+The primary key for the bank database is as follows for each relation is as follows: For branch it is branch_name; for customer, it is ID; for loan, it is loan_number; for borrower, it is ID; for account, it is account_number; for depositor, it is ID.
+
+The foreign keys are branch_name and ID as these connect all the relations together.
